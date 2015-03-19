@@ -15,7 +15,7 @@ local cid = "b45b1aa10f1ac2941910a7f0d10f8e28"
 -- Probe function.
 function probe()
     return ( vlc.access == "https" or vlc.access == "http" )
-        and string.match( vlc.path, "soundcloud%.com/.-/sets/.*" )
+        and string.match( vlc.path, "(soundcloud%.com/[^/]+/sets/[^?/]+)" )
 end
 
 -- http://stackoverflow.com/questions/5958818/loading-serialized-data-into-a-table
@@ -39,11 +39,29 @@ function parse()
     local buf = {}
     line = s:readline()
     if not line then return {} end
-    line = line:gsub(":", "="):gsub("%[", "{"):gsub("%]", "}"):gsub("([{,])\"(.-)\"=", "%1[\"%2\"]=")
+    line = line:gsub("%[", "{"):gsub("%]", "}"):gsub("([{,])\"(.-)\":", "%1[\"%2\"]=")
     strr = tf("main=" .. line)
     buf = {}
     for k,v in pairs(strr.main.tracks) do
-      buf[#buf + 1 ] = { path = (v.stream_url:gsub("=//", "://") .. "?client_id=" .. cid), name = v.title, arturl = (v.artwork_url:gsub("=//", "://") .. "?client_id=" .. cid) }
+      buf[#buf + 1 ] =
+          {
+            path = (v.stream_url .. "?client_id=" .. cid),
+            name = v.title,
+            arturl = (v.artwork_url and v.artwork_url or v.user.artwork_url),
+            title = v.title,
+            artist = (v.user.username .. " (" .. v.user.permalink.. ")"),
+            genre = v.genre,
+            copyright = v.license,
+            description = v.description,
+            date = v.created_at,
+            url = vlc.access .. "://" .. v.permalink_url,
+            duration = (v.duration / 1000),
+            meta = 
+            {
+              ["tag list"] = v.tag_list,
+              ["creation time"] = v.created_at
+            }
+          }
     end
     return buf
 end
