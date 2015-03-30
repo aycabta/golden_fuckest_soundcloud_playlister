@@ -55,7 +55,6 @@ function parse()
             description = v.description,
             date = v.created_at,
             url = vlc.access .. "://" .. v.permalink_url,
-            duration = (v.duration / 1000),
             meta = 
             {
               ["tag list"] = v.tag_list,
