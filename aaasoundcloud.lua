@@ -18,16 +18,6 @@ function probe()
         and string.match( vlc.path, "(soundcloud%.com/[^/]+/sets/[^?/]+)" )
 end
 
--- http://stackoverflow.com/questions/5958818/loading-serialized-data-into-a-table
-function tf(s) 
-  t={}
-  f, err=loadstring(s)
-  if f == nil then error(err) end
-  setfenv(f,t)
-  f()
-  return t
-end
-
 -- Parse function.
 function parse()
     line = vlc.readline()
@@ -39,10 +29,10 @@ function parse()
     local buf = {}
     line = s:readline()
     if not line then return {} end
-    line = line:gsub("%[", "{"):gsub("%]", "}"):gsub("([{,])\"(.-)\":", "%1[\"%2\"]=")
-    strr = tf("main=" .. line)
+    json = require "dkjson"
+    json = json.decode(line)
     buf = {}
-    for k,v in pairs(strr.main.tracks) do
+    for k,v in pairs(json.tracks) do
       buf[#buf + 1 ] =
           {
             path = (v.stream_url .. "?client_id=" .. cid),
