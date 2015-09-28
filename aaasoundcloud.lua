@@ -8,13 +8,11 @@
 
 local client_id = "bfc20bb261eff2b6848998b09c3d6954"
 
--- Probe function.
 function probe()
     return ( vlc.access == "https" or vlc.access == "http" )
         and string.match( vlc.path, "(soundcloud%.com/[^/]+/sets/[^?/]+)" )
 end
 
--- Parse function.
 function parse()
     line = vlc.readline()
     if not line then return {} end
