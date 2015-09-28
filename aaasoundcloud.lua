@@ -6,7 +6,7 @@
   Big Thanks and Big Love...
 --]]--
 
-local cid = "bfc20bb261eff2b6848998b09c3d6954"
+local client_id = "bfc20bb261eff2b6848998b09c3d6954"
 
 -- Probe function.
 function probe()
@@ -18,9 +18,9 @@ end
 function parse()
     line = vlc.readline()
     if not line then return {} end
-    plyid = string.match(line, "\"soundcloud://playlists:(%d+)\"")
-    if not plyid then return {} end
-    local s, ejj = vlc.stream("http://api.soundcloud.com/playlists/" .. plyid .. ".json?client_id=" .. cid)
+    play_id = string.match(line, "\"soundcloud://playlists:(%d+)\"")
+    if not play_id then return {} end
+    local s, ejj = vlc.stream("http://api.soundcloud.com/playlists/" .. play_id .. ".json?client_id=" .. client_id)
     if s == nil then return {} end
     local buf = {}
     line = nil
@@ -40,7 +40,7 @@ function parse()
     for k,v in pairs(json.tracks) do
       buf[#buf + 1 ] =
           {
-            path = (v.stream_url .. "?client_id=" .. cid),
+            path = (v.stream_url .. "?client_id=" .. client_id),
             name = v.title,
             arturl = (v.artwork_url and v.artwork_url or v.user.artwork_url),
             title = v.title,
