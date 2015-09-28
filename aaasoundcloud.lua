@@ -1,12 +1,9 @@
 --[[--
-  SonundCloud set (playlist-thingy) parser
-  Made by MarcusD
-  
-  This is a VLC playlist plugin to be able to play SoundCloud sets
-  An example set link: https://soundcloud.com/shanemesa/sets/mother4soundtrack
-  
-  My GitHub page:     https://github.com/MarcuzD
-  My Youtube channel: https://youtube.com/user/mCucc
+  Golden Fuckest SoundCloud Playlister for LVC
+
+  Inspired the MarcusD product:
+    https://gist.github.com/MarcuzD/c84b7599c40f4838e4e2
+  Big Thanks and Big Love...
 --]]--
 
 local cid = "bfc20bb261eff2b6848998b09c3d6954"
