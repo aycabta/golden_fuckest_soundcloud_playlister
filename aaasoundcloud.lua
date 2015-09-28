@@ -9,8 +9,7 @@
   My Youtube channel: https://youtube.com/user/mCucc
 --]]--
 
--- SoundCloud ClientID
-local cid = "b45b1aa10f1ac2941910a7f0d10f8e28"
+local cid = "bfc20bb261eff2b6848998b09c3d6954"
 
 -- Probe function.
 function probe()
