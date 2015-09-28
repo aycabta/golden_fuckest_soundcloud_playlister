@@ -11,3 +11,12 @@ Run `luac52 golden_fuckest_soundcloud.lua` and `mv luac.out /path/to/vlc/lua/pla
 
 Use your throb.
 
+## Great Thanks
+
+Inspired the MarcusD product:
+https://gist.github.com/MarcuzD/c84b7599c40f4838e4e2
+
+It's 'aaasoundcloud'.
+
+Big Thanks and Big Love...
+
