@@ -7,7 +7,7 @@ Yeah.
 
 Run `luac52 golden_fuckest_soundcloud.lua` and `mv luac.out /path/to/vlc/lua/playlist/golden_fuckest_soundcloud.luac`.
 
-## How to contribute
+## How To Contribute
 
 Use your throb.
 
