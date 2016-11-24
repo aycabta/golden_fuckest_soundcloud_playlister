@@ -5,7 +5,11 @@ Yeah.
 
 ## Usage
 
-Run `luac golden_fuckest_soundcloud.lua` and `mv luac.out /path/to/vlc/lua/playlist/golden_fuckest_soundcloud.luac`.
+Please place `golden_fuckest_soundcloud.luac` at VLC playlist plugin dir.
+
+```bash
+mv golden_fuckest_soundcloud.luac /path/to/vlc/lua/playlist/golden_fuckest_soundcloud.luac
+```
 
 You can get binary file on [GitHub Releases page](https://github.com/aycabta/golden_fuckest_soundcloud_playlister/releases).
 
