@@ -9,6 +9,14 @@ Run `luac golden_fuckest_soundcloud.lua` and `mv luac.out /path/to/vlc/lua/playl
 
 You can get binary file on [GitHub Releases page](https://github.com/aycabta/golden_fuckest_soundcloud_playlister/releases).
 
+## Building
+
+Run `luac` command:
+
+```bash
+luac -o golden_fuckest_soundcloud.luac golden_fuckest_soundcloud.lua
+```
+
 ## How To Contribute
 
 Use your throb.
