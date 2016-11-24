@@ -32,18 +32,17 @@ function parse()
 	local url = "http://api.soundcloud.com/playlists/" .. play_id .. ".json?client_id=" .. client_id
 	local s, ejj = vlc.stream(url)
 	if s == nil then return {} end
-	local buf = {}
-	line = nil
-	local new = s:readline()
-	while new ~= nil do
-		if line == nil then
-			line = new
+	local json_data
+	local chunk = s:read(4096)
+	while chunk ~= nil do
+		if json_data == nil then
+			json_data = chunk
 		else
-			line = line .. new
+			json_data = json_data .. chunk
 		end
-		new = s:readline()
+		chunk = s:read(4096)
 	end
-	if not line then return {} end
+	if not json_data then return {} end
 	json = require "dkjson"
 	json = json.decode(line)
 	buf = {}
