@@ -18,9 +18,16 @@ function probe()
 end
 
 function parse()
+	local play_id
+	local line
 	line = vlc.readline()
-	if not line then return {} end
-	play_id = string.match(line, "\"soundcloud://playlists:(%d+)\"")
+	repeat
+		play_id = string.match(line, "\"soundcloud://playlists:(%d+)\"")
+		if play_id then
+			break
+		end
+		line = vlc.readline()
+	until (not line)
 	if not play_id then return {} end
 	local s, ejj = vlc.stream("http://api.soundcloud.com/playlists/" .. play_id .. ".json?client_id=" .. client_id)
 	if s == nil then return {} end
