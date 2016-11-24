@@ -1,5 +1,5 @@
 --[[--
-  Golden Fuckest SoundCloud Playlister for LVC
+  Golden Fuckest SoundCloud Playlister for VLC
 
   Inspired the MarcusD product:
     https://gist.github.com/MarcuzD/c84b7599c40f4838e4e2
