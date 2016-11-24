@@ -11,6 +11,8 @@ Please place `golden_fuckest_soundcloud.luac` at VLC playlist plugin dir.
 mv golden_fuckest_soundcloud.luac /path/to/vlc/lua/playlist/golden_fuckest_soundcloud.luac
 ```
 
+Official information: [How to Install a VLC Media Player Addon .lua](https://www.vlchelp.com/install-vlc-media-player-addon/)
+
 You can get binary file on [GitHub Releases page](https://github.com/aycabta/golden_fuckest_soundcloud_playlister/releases).
 
 ## Building
