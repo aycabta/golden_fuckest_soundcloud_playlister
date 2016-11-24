@@ -29,7 +29,8 @@ function parse()
 		line = vlc.readline()
 	until (not line)
 	if not play_id then return {} end
-	local s, ejj = vlc.stream("http://api.soundcloud.com/playlists/" .. play_id .. ".json?client_id=" .. client_id)
+	local url = "http://api.soundcloud.com/playlists/" .. play_id .. ".json?client_id=" .. client_id
+	local s, ejj = vlc.stream(url)
 	if s == nil then return {} end
 	local buf = {}
 	line = nil
