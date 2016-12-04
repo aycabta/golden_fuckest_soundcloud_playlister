@@ -43,8 +43,8 @@ function parse()
 		chunk = s:read(4096)
 	end
 	if not json_data then return {} end
-	local json = require "dkjson"
-	json = json.decode(json_data)
+	local dkjson = require "dkjson"
+	local json = dkjson.decode(json_data)
 	local buf = {}
 	for k,v in pairs(json.tracks) do
 		buf[#buf + 1 ] =
