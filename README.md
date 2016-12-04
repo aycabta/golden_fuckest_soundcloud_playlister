@@ -5,7 +5,7 @@ Yeah.
 
 ## Usage
 
-Please place `golden_fuckest_soundcloud.lua` at VLC playlist plugin dir.
+Please place `golden_fuckest_soundcloud.lua` at VLC playlist plugin directory.
 
 ```bash
 cp golden_fuckest_soundcloud.lua /path/to/vlc/lua/playlist/golden_fuckest_soundcloud.lua
