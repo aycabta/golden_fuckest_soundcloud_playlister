@@ -1,4 +1,4 @@
-Golden Fuckest SoundCloud Playlister for LVC
+Golden Fuckest SoundCloud Playlister for VLC
 ============================================
 
 Yeah.
